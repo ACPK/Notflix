@@ -42,8 +42,8 @@ for (j = 0; j < genres.length; j++) {
                 var tile = document.createElement('div');
                 tile.classList.add('tile');
 
-                var overlay = document.createElement('div');
-                overlay.classList.add('overlay', 'hover');
+                var inner_tile = document.createElement('div');
+                inner_tile.classList.add('inner-tile');
 
                 var play_icon = document.createElement('div');
                 play_icon.classList.add('play-icon');
@@ -62,9 +62,9 @@ for (j = 0; j < genres.length; j++) {
                 play_icon_inner.appendChild(play_icon_arrow);
                 play_icon_outer.appendChild(play_icon_inner);
                 play_icon.appendChild(play_icon_outer);
-                tile.appendChild(play_icon);
-                tile.appendChild(overlay);
-                tile.appendChild(text);
+                inner_tile.appendChild(play_icon);
+                inner_tile.appendChild(text);
+                tile.appendChild(inner_tile);
                 row.appendChild(tile);
             }
         }
@@ -106,11 +106,23 @@ var mouseout_delay = function (elem, callback) {
 };
 
 for (i = 0; i < hover_tiles.length; i++) {
+    hover_tiles[i].addEventListener('mouseover', function() {
+        this.classList.add('outer-tile-hover');
+    });
+
+    hover_tiles[i].addEventListener('mouseout', function() {
+        this.classList.remove('outer-tile-hover');
+    });
+
+}
+
+
+for (i = 0; i < hover_tiles.length; i++) {
 
     // Mouseover
     mouseover_delay(hover_tiles[i], function(elem){
         elem.classList.add('tile-scale');
-        elem.children[0].classList.add('play-icon-hover');
+        elem.children[0].classList.add('inner-tile-hover');
 
         // Shift left side
         for (current_node = elem.previousSibling ; current_node !== null ; current_node = current_node.previousSibling){
@@ -126,7 +138,7 @@ for (i = 0; i < hover_tiles.length; i++) {
     // Mouseout
     mouseout_delay(hover_tiles[i], function(elem){
         elem.classList.remove('tile-scale');
-        elem.children[0].classList.remove('play-icon-hover');
+        elem.children[0].classList.remove('inner-tile-hover');
 
         // Shift left side
         for (current_node = elem.previousSibling ; current_node !== null ; current_node = current_node.previousSibling){

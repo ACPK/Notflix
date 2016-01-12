@@ -70,26 +70,8 @@ nav {
     -webkit-transition-duration: 0.5s;
 }
 
-.hover {
-    opacity: 0;
-}
-
-.hover:hover {
-    opacity: 0.3;
-    touch-action: auto;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.78);
-    opacity: 0;
-    transition: opacity;
-    touch-action: none;
+.outer-tile-hover{
+    background-color: #f1eaf3;
 }
 
 .tile-scale {
@@ -105,15 +87,23 @@ nav {
     transform: translate(65px, 0);
 }
 
-.play-icon{
+.inner-tile{
+    height: 100%;
+    width: 100%;
     margin: 0 auto;
-    margin-top: 20px;
+    background-color: #bcb7be;
     opacity: 0;
     transition: opacity;
     -webkit-transition-duration: 0.5s;
+    overflow: auto;
 }
 
-.play-icon-hover {
+.play-icon{
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.inner-tile-hover {
     opacity: 1;
 }
 
