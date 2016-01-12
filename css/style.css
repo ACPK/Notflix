@@ -71,6 +71,7 @@ nav {
 }
 
 .hover {
+    opacity: 0;
 }
 
 .hover:hover {
@@ -105,13 +106,43 @@ nav {
 }
 
 .play-icon{
-    background-color: red;
+    margin: 0 auto;
+    margin-top: 20px;
     opacity: 0;
     transition: opacity;
     -webkit-transition-duration: 0.5s;
 }
 
-.play-icon-show {
+.play-icon-hover {
     opacity: 1;
-    touch-action: auto;
+}
+
+.play-icon-outer{
+    opacity: 1;
+    margin: 0 auto;
+    width: 45px;
+    height: 44px;
+    border-radius: 50%;
+    border: 3px solid #f2efef;
+    overflow: auto;
+}
+
+.play-icon-inner{
+    background: rgba(0, 0, 0, 0.4);
+    margin: 0 auto;
+    width: 45px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: auto;
+}
+
+.play-icon-arrow{
+    opacity: 0.9;
+    width: 0;
+    height: 0;
+    margin-top: 11px;
+    margin-left: 15px;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    border-left: 19px solid #f14b4e;
 }
